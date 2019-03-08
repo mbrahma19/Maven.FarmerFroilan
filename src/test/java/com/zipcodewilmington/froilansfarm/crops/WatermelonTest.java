@@ -28,7 +28,7 @@ public class WatermelonTest {
     }
 
     @Test
-    public void setCalorieValue(){
+    public void setCalorieValueTest(){
         //given
         Integer expected = 1000;
         Watermelon watermelon = new Watermelon();
