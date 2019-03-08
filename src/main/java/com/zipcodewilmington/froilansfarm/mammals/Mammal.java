@@ -7,6 +7,10 @@ public abstract class Mammal implements NoiseMaker, Eater {
 
     private Integer caloricIntake;
 
+    public Mammal(){
+        this.caloricIntake = 0;
+    }
+
     public Integer getCaloricIntake() {
         return caloricIntake;
     }
