@@ -16,12 +16,18 @@ public class WatermelonPlantTest {
     }
 
     @Test
-    public void nullaryConstructorTest(){
+    public void nullaryConstructorIsFertilizedTest(){
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         //when
-        
+        Boolean isFertilized = watermelonPlant.getHasBeenFertilized();
         //then
+        Assert.assertFalse(isFertilized);
+    }
+
+    @Test
+    public void nullaryConstructorIsHarvestedTest(){
+
     }
 
     @Test
