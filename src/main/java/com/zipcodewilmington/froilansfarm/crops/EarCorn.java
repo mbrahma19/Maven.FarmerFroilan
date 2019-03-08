@@ -1,7 +1,13 @@
 package com.zipcodewilmington.froilansfarm.crops;
 
-import com.zipcodewilmington.froilansfarm.crops.Edible;
-
 public class EarCorn extends Edible {
+
+    public EarCorn(){
+        this(86);
+    }
+
+    private EarCorn(Integer caloricValue){
+        super(caloricValue);
+    }
 
 }

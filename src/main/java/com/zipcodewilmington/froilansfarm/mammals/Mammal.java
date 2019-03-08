@@ -5,4 +5,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 
 public abstract class Mammal implements NoiseMaker, Eater {
 
+    private Integer caloricIntake;
+
+
 }
