@@ -11,7 +11,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 public class Farmer extends Mammal implements Rider, Eater, Botanist {
 
     public void eat(Edible edibleFood) {
-
+        super.addCalories(edibleFood.getCalories());
     }
 
     public String noise() {
