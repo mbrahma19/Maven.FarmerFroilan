@@ -5,17 +5,20 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Horse extends Mammal implements Rideable{
 
+
     private Boolean rideStatus;
+
 
     public void eat(Edible edibleFood) {
 
     }
 
     public String noise() {
-        return null;
+        return "neigh!";
     }
 
     public void setRideStatus(Boolean b) {
+        this.rideStatus = b;
 
     }
 
