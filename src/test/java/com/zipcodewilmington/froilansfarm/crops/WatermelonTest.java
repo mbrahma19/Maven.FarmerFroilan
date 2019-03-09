@@ -27,16 +27,4 @@ public class WatermelonTest {
         Assert.assertEquals(expectedCal0ricValue, caloricValue);
     }
 
-    @Test
-    public void setCalorieValueTest(){
-        //given
-        Integer expected = 1000;
-        Watermelon watermelon = new Watermelon();
-        //when
-        watermelon.setCalories(1000);
-        Integer actual = watermelon.getCalories();
-        //then
-        Assert.assertEquals(expected,actual);
-    }
-
 }
