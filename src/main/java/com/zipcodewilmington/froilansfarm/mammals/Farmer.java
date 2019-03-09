@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
+import com.zipcodewilmington.froilansfarm.containers.Container;
 import com.zipcodewilmington.froilansfarm.crops.Crop;
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.crops.Edible;
@@ -18,8 +19,10 @@ public class Farmer extends Mammal implements Rider, Eater, Botanist {
         return "This is starting to get weird...";
     }
 
-    public CropRow plant(Crop cropToPlant) {
-        return null;
+    public void plant(Crop cropToPlant) {
+        CropRow cropRow = new CropRow();
+        cropRow.add(cropToPlant);
+
     }
 
     public void mount(Rideable entity) {

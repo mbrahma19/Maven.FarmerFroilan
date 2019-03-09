@@ -12,8 +12,8 @@ public abstract class Edible {
         return calories;
     }
 
-    public void setCalories(Integer calories) {
-        this.calories = calories;
-    }
+//    public void setCalories(Integer calories) {
+//        this.calories = calories;
+//    }
 
 }

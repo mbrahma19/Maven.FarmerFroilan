@@ -19,18 +19,32 @@ public class EarCornTest {
         Assert.assertEquals(expected, actual);
     }
 
+//    @Test
+//    public void setCaloriesTest() {
+//        //Given
+//        EarCorn earCorn = new EarCorn();
+//        Integer expected = 100;
+//
+//
+//        //When
+//
+//        Integer actual = earCorn.getCalories();
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//    }
+
     @Test
-    public void edibleTest() {
+    public void instanceOfTest() {
         //Given
         EarCorn earCorn = new EarCorn();
-        Integer expected = 100;
+
 
 
         //When
-        earCorn.setCalories(expected);
-        Integer actual = earCorn.getCalories();
+        Boolean actual = earCorn instanceof Edible;
 
         //Then
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 }

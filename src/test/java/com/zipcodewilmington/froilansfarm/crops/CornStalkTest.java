@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CornStalkTest {
 
     @Test
-    public void cornStalkTest() {
+    public void yieldTest() {
         //Given
         CornStalk cornStalk = new CornStalk();
         Integer expected = 86;
