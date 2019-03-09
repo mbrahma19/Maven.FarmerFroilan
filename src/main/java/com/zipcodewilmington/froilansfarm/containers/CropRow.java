@@ -10,6 +10,9 @@ import java.util.stream.Stream;
 public class CropRow<T extends Crop> extends Container<Crop> {
 
     private Boolean hasBeenFertilized;
+    private Boolean hasBeenHarvested;
+
+    
 
     public void fertilizeCropRow(){
         hasBeenFertilized = true;
@@ -27,5 +30,6 @@ public class CropRow<T extends Crop> extends Container<Crop> {
     public Crop getCrop(Crop cropToGet){
         return getList().get(getList().indexOf(cropToGet));
     }
+
 
 }
