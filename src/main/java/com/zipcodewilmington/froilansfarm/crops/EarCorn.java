@@ -8,6 +8,7 @@ public class EarCorn extends Edible {
 
     private EarCorn(Integer caloricValue){
         super(caloricValue);
+
     }
 
 }
