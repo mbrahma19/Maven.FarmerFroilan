@@ -1,8 +1,10 @@
+package com.zipcodewilmington.froilansfarm.mammals;
 
 import com.zipcodewilmington.froilansfarm.crops.Edible;
 import com.zipcodewilmington.froilansfarm.crops.Egg;
 import com.zipcodewilmington.froilansfarm.crops.Watermelon;
 import com.zipcodewilmington.froilansfarm.mammals.Chicken;
+import com.zipcodewilmington.froilansfarm.mammals.Mammal;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -44,5 +46,12 @@ public class ChickenTest {
         Assert.assertTrue(actual instanceof Egg);
     }
 
+    @Test
+    public void testInstanceOfMammal(){
+        //given
+        Chicken chicken = new Chicken();
+        //then
+        Assert.assertTrue(chicken instanceof Mammal);
 
+    }
 }

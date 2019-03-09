@@ -1,3 +1,5 @@
+package com.zipcodewilmington.froilansfarm.crops;
+
 import com.zipcodewilmington.froilansfarm.crops.Edible;
 import com.zipcodewilmington.froilansfarm.crops.Egg;
 import org.junit.Assert;
