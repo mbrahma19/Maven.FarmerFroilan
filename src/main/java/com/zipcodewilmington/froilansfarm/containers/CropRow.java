@@ -1,8 +1,10 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
 import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.Edible;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CropRow<T extends Crop> extends Container<Crop> {
@@ -11,22 +13,19 @@ public class CropRow<T extends Crop> extends Container<Crop> {
 
     public void fertilizeCropRow(){
         hasBeenFertilized = true;
-        for(Crop c : super.getList()){
+        for(Crop c : getList()){
             c.setHasBeenFertilized(true);
         }
     }
 
-    public List<T> harvestCropRow(){
-        List<T> harvestList = new ArrayList<T>();
-        Stream<Integer> arraywithoutDupes = Collection.strea
-        );
-        Integer[] deletedDupe = arraywithoutDupes.toArray(Integer[]::new);
-        return deletedDupe;
+    public List<Edible> harvestCropRow(){
+        Stream<Edible> edibleStream = getList().stream().filter( crop -> crop.getHasBeenFertilized()).map(Crop::yield);
+        List<Edible> harvestList  = edibleStream.collect(Collectors.toList());
+        return harvestList;
     }
 
-    public T getCrop(Crop cropToGet){
-
-        return (T) getList().get(getList().indexOf(cropToGet));
+    public Crop getCrop(Crop cropToGet){
+        return getList().get(getList().indexOf(cropToGet));
     }
 
 }

@@ -9,6 +9,10 @@ public abstract class Container<T> {
     public Container(){
         this.list = new ArrayList<T>();
     }
+
+    public Container(T object){
+        this.list = new ArrayList<T>();
+    }
     public void add(T object){
         list.add(object);
     }

@@ -82,7 +82,7 @@ public class CropRowTest {
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
         TomatoPlant tomatoPlant = new TomatoPlant();
-        ArrayList<Crop> expectedList = new ArrayList<Crop>(Arrays.asList(new Crop[]{watermelonPlant,watermelonPlant2,cornStalk,tomatoPlant}));
+        ArrayList<Crop> expectedList = new ArrayList<>(Arrays.asList(new Crop[]{watermelonPlant,watermelonPlant2,cornStalk,tomatoPlant}));
 
         //when
         CropRow<WatermelonPlant> cropRow = new CropRow();
@@ -98,11 +98,48 @@ public class CropRowTest {
 
     @Test
     public void fertilizeTest(){
-        //given
-
+        WatermelonPlant watermelonPlant = new WatermelonPlant();
+        WatermelonPlant watermelonPlant2 = new WatermelonPlant();
+        CornStalk cornStalk = new CornStalk();
+        TomatoPlant tomatoPlant = new TomatoPlant();
         //when
+        CropRow<WatermelonPlant> cropRow = new CropRow();
+        cropRow.add(watermelonPlant);
+        cropRow.add(watermelonPlant2);
+        cropRow.add(cornStalk);
+        cropRow.add(tomatoPlant);
+        cropRow.fertilizeCropRow();
 
         //then
+        Assert.assertTrue(getFertilizeStatus(cropRow));
+    }
+
+    @Test
+    public void harvestTest(){
+        WatermelonPlant watermelonPlant = new WatermelonPlant();
+        WatermelonPlant watermelonPlant2 = new WatermelonPlant();
+        CornStalk cornStalk = new CornStalk();
+        CornStalk cornStalk2 = new CornStalk();
+
+        //when
+        CropRow<WatermelonPlant> cropRow = new CropRow();
+        cropRow.add(watermelonPlant);
+        cropRow.add(watermelonPlant2);
+        cropRow.add(cornStalk);
+        cropRow.add(cornStalk2);
+        cropRow.fertilizeCropRow();
+
+
+    }
+
+    private boolean getFertilizeStatus(CropRow<WatermelonPlant> cropRow) {
+        boolean result = true;
+        for(Crop c : cropRow.getList()){
+            if(c.getHasBeenFertilized() == false){
+                result = false;
+            }
+        }
+        return result;
     }
 
 }
