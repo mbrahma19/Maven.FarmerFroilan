@@ -12,7 +12,11 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Farmer extends Mammal implements Rider, Eater, Botanist {
 
-    CropRow cropRow;
+    public Farmer(){
+
+    }
+
+
 
     public void eat(Edible edibleFood) {
         super.addCalories(edibleFood.getCalories());
@@ -23,8 +27,8 @@ public class Farmer extends Mammal implements Rider, Eater, Botanist {
     }
 
     public void plant(Crop cropToPlant) {
-        cropRow.getCrop(cropToPlant);
-        cropRow.add(cropToPlant);
+//        cropRow.getCrop(cropToPlant);
+//        cropRow.add(cropToPlant);
     }
 
     public void mount(Rideable entity) {
@@ -34,7 +38,6 @@ public class Farmer extends Mammal implements Rider, Eater, Botanist {
     }
 
     public void dismount(Rideable entity) {
-
         entity.setRideStatus(true);
 
     }
