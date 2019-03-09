@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
-import com.zipcodewilmington.froilansfarm.crops.*;
+import com.zipcodewilmington.froilansfarm.crops.CornStalk;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +14,7 @@ import java.util.List;
 public class CropRowTest {
 
     @Test
-    public void nullaryConstructorTest(){
+    public void nullaryConstructorTest() {
         //given
         CropRow cropRow = new CropRow();
         //when
@@ -21,17 +24,7 @@ public class CropRowTest {
     }
 
     @Test
-    public void constructorWithTypeTest(){
-        //given
-        CropRow cropRow = new CropRow<WatermelonPlant>();
-        //when
-        Class actualClass = cropRow.getClass();
-        //then
-        cropRow.getClass().toString();
-    }
-
-    @Test
-    public void addCropsTest(){
+    public void addCropsTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         CropRow cropRow = new CropRow();
@@ -45,7 +38,19 @@ public class CropRowTest {
     }
 
     @Test
-    public void removeCropsTest(){
+    public void getCropTest() {
+        //given
+        CropRow cropRow = new CropRow<>();
+        WatermelonPlant watermelonPlant = new WatermelonPlant();
+        //when
+        cropRow.add(watermelonPlant);
+        Crop actualCrop = cropRow.getCrop(watermelonPlant);
+        //then
+        Assert.assertEquals(watermelonPlant, actualCrop);
+    }
+
+    @Test
+    public void removeCropsTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
@@ -66,7 +71,7 @@ public class CropRowTest {
     }
 
     @Test
-    public void removeCropsContainsTest(){
+    public void removeCropsContainsTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
@@ -87,13 +92,13 @@ public class CropRowTest {
     }
 
     @Test
-    public void getListTest(){
+    public void getListTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
         TomatoPlant tomatoPlant = new TomatoPlant();
-        ArrayList<Crop> expectedList = new ArrayList<>(Arrays.asList(new Crop[]{watermelonPlant,watermelonPlant2,cornStalk,tomatoPlant}));
+        ArrayList<Crop> expectedList = new ArrayList<>(Arrays.asList(new Crop[]{watermelonPlant, watermelonPlant2, cornStalk, tomatoPlant}));
 
         //when
         CropRow<WatermelonPlant> cropRow = new CropRow();
@@ -101,14 +106,14 @@ public class CropRowTest {
         cropRow.add(watermelonPlant2);
         cropRow.add(cornStalk);
         cropRow.add(tomatoPlant);
-        ArrayList<Crop> actualList = (ArrayList)cropRow.getList();
+        ArrayList<Crop> actualList = (ArrayList) cropRow.getList();
 
         //then
         Assert.assertEquals(expectedList, actualList);
     }
 
     @Test
-    public void fertilizeTest(){
+    public void fertilizeTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
@@ -127,7 +132,7 @@ public class CropRowTest {
     }
 
     @Test
-    public void harvestTest(){
+    public void harvestTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
@@ -145,11 +150,11 @@ public class CropRowTest {
 
         Integer actualSize = cropRow.harvestCropRow().size();
         //then
-        Assert.assertEquals(expectedSize,actualSize);
+        Assert.assertEquals(expectedSize, actualSize);
     }
 
     @Test
-    public void harvestHalfTheCropsTest(){
+    public void harvestHalfTheCropsTest() {
         //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         watermelonPlant.setHasBeenFertilized(true);
@@ -168,13 +173,13 @@ public class CropRowTest {
 
         Integer actualSize = cropRow.harvestCropRow().size();
         //then
-        Assert.assertEquals(expectedSize,actualSize);
+        Assert.assertEquals(expectedSize, actualSize);
     }
 
     private boolean getFertilizeStatus(CropRow<WatermelonPlant> cropRow) {
         boolean result = true;
-        for(Crop c : cropRow.getList()){
-            if(c.getHasBeenFertilized() == false){
+        for (Crop c : cropRow.getList()) {
+            if (c.getHasBeenFertilized() == false) {
                 result = false;
             }
         }
