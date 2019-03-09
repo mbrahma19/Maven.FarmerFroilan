@@ -1,5 +1,6 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.builders;
 
+import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.containers.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.containers.FarmHouse;
 import com.zipcodewilmington.froilansfarm.containers.Field;
