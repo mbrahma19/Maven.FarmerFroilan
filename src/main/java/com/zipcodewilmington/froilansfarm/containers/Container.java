@@ -1,10 +1,14 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Container<T> {
     private List<T> list;
 
+    public Container(){
+        this.list = new ArrayList<T>();
+    }
     public void add(T object){
         list.add(object);
     }

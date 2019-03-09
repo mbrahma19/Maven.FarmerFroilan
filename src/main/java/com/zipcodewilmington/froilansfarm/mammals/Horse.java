@@ -8,9 +8,13 @@ public class Horse extends Mammal implements Rideable{
 
     private Boolean rideStatus;
 
+    public Horse(){
+        super();
+    }
+
 
     public void eat(Edible edibleFood) {
-
+        addCalories(edibleFood.getCalories());
     }
 
     public String noise() {
@@ -23,6 +27,7 @@ public class Horse extends Mammal implements Rideable{
     }
 
     public Boolean getRideStatus() {
-        return null;
+
+        return rideStatus;
     }
 }
