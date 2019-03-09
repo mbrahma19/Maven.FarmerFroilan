@@ -9,6 +9,16 @@ import org.junit.Test;
 public class HorseTest {
 
     @Test
+    public void horseConstructorTest(){
+        Horse horse = new Horse();
+
+        Boolean actual = horse.getRideStatus();
+
+        Assert.assertTrue(actual);
+
+    }
+
+    @Test
     public void noiseTest() {
         //Given
         Horse horse = new Horse();
