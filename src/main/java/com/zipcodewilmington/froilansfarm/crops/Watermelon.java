@@ -2,7 +2,6 @@ package com.zipcodewilmington.froilansfarm.crops;
 
 public class Watermelon extends Edible {
 
-
     public Watermelon(){
         this(1371);
     }
@@ -10,7 +9,5 @@ public class Watermelon extends Edible {
     private Watermelon(Integer caloriecount){
         super(caloriecount);
     }
-
-
 
 }

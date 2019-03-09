@@ -6,9 +6,11 @@ public class CropRow extends Container<Crop> {
 
     private Boolean hasBeenFertilized;
 
-    public void fertilizeCrop(){
+    public void fertilizeCropRow(){
         hasBeenFertilized = true;
-
+        for(Crop c : super.getList()){
+            c.setHasBeenFertilized(true);
+        }
     }
 
 }
