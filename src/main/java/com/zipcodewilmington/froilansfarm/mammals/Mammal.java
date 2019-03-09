@@ -24,5 +24,4 @@ public abstract class Mammal implements NoiseMaker, Eater {
         addCalories(edible.getCalories());
     }
 
-
 }
