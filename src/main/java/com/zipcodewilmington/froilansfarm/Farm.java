@@ -3,10 +3,15 @@ package com.zipcodewilmington.froilansfarm;
 import com.zipcodewilmington.froilansfarm.containers.*;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.transportation.CropDuster;
+import com.zipcodewilmington.froilansfarm.transportation.Tractor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
+
+    private static final Farm farm = new Farm();
 
     private List<Stable> stableList;
     private List<ChickenCoop> chickenCoops;
@@ -16,14 +21,46 @@ public class Farm {
     private FarmVehicle vehicle2;
     private Aircraft aircraft;
 
-    public Farm(List<Stable> stableList, List<ChickenCoop> chickenCoops, FarmHouse farmHouse, Field cropField, FarmVehicle vehicle1, FarmVehicle vehicle2, Aircraft aircraft) {
-        this.stableList = stableList;
-        this.chickenCoops = chickenCoops;
-        this.farmHouse = farmHouse;
-        this.cropField = cropField;
-        this.vehicle1 = vehicle1;
-        this.vehicle2 = vehicle2;
-        this.aircraft = aircraft;
+    private Farm() {
+        this.stableList = new ArrayList<>();
+        this.chickenCoops = new ArrayList<>();
+        this.farmHouse = new FarmHouse();
+        this.cropField = new Field();
+        this.vehicle1 = new Tractor();
+        this.vehicle2 = new Tractor();
+        this.aircraft = new CropDuster();
+    }
+
+    public static Farm getFarm(){
+        return farm;
+    }
+
+    public List<Stable> getStableList() {
+        return stableList;
+    }
+
+    public List<ChickenCoop> getChickenCoops() {
+        return chickenCoops;
+    }
+
+    public FarmHouse getFarmHouse() {
+        return farmHouse;
+    }
+
+    public Field getCropField() {
+        return cropField;
+    }
+
+    public FarmVehicle getVehicle1() {
+        return vehicle1;
+    }
+
+    public FarmVehicle getVehicle2() {
+        return vehicle2;
+    }
+
+    public Aircraft getAircraft() {
+        return aircraft;
     }
 
 

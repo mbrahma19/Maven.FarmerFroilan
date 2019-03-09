@@ -1,6 +1,6 @@
-package com.zipcodewilmington.froilansfarm.crops;
+package com.zipcodewilmington.froilansfarm.containers;
 
-import com.zipcodewilmington.froilansfarm.containers.CropRow;
+import com.zipcodewilmington.froilansfarm.crops.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,6 +18,16 @@ public class CropRowTest {
         List createdList = cropRow.getList();
         //then
         Assert.assertTrue(createdList.isEmpty());
+    }
+
+    @Test
+    public void constructorWithTypeTest(){
+        //given
+        CropRow cropRow = new CropRow<WatermelonPlant>();
+        //when
+        Class actualClass = cropRow.getClass();
+        //then
+        cropRow.getClass().toString();
     }
 
     @Test
@@ -78,6 +88,7 @@ public class CropRowTest {
 
     @Test
     public void getListTest(){
+        //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
@@ -98,6 +109,7 @@ public class CropRowTest {
 
     @Test
     public void fertilizeTest(){
+        //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
@@ -116,10 +128,12 @@ public class CropRowTest {
 
     @Test
     public void harvestTest(){
+        //given
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
         CornStalk cornStalk2 = new CornStalk();
+        Integer expectedSize = 4;
 
         //when
         CropRow<WatermelonPlant> cropRow = new CropRow();
@@ -129,7 +143,32 @@ public class CropRowTest {
         cropRow.add(cornStalk2);
         cropRow.fertilizeCropRow();
 
+        Integer actualSize = cropRow.harvestCropRow().size();
+        //then
+        Assert.assertEquals(expectedSize,actualSize);
+    }
 
+    @Test
+    public void harvestHalfTheCropsTest(){
+        //given
+        WatermelonPlant watermelonPlant = new WatermelonPlant();
+        watermelonPlant.setHasBeenFertilized(true);
+        WatermelonPlant watermelonPlant2 = new WatermelonPlant();
+        CornStalk cornStalk = new CornStalk();
+        cornStalk.setHasBeenFertilized(true);
+        CornStalk cornStalk2 = new CornStalk();
+        Integer expectedSize = 2;
+
+        //when
+        CropRow<WatermelonPlant> cropRow = new CropRow();
+        cropRow.add(watermelonPlant);
+        cropRow.add(watermelonPlant2);
+        cropRow.add(cornStalk);
+        cropRow.add(cornStalk2);
+
+        Integer actualSize = cropRow.harvestCropRow().size();
+        //then
+        Assert.assertEquals(expectedSize,actualSize);
     }
 
     private boolean getFertilizeStatus(CropRow<WatermelonPlant> cropRow) {
