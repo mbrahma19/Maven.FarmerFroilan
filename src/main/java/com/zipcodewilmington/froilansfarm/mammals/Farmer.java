@@ -23,7 +23,9 @@ public class Farmer extends Mammal implements Rider, Eater, Botanist {
     }
 
     public void mount(Rideable entity) {
-
+        if(entity.getRideStatus()!=false){
+            entity.setRideStatus(true);
+        }
     }
 
     public void dismount(Rideable entity) {
