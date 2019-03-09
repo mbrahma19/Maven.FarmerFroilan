@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TomatoPlantTest {
 
     @Test
-    public void yieldTest(){
+    public void yieldTest() {
         //Given
         TomatoPlant tomatoPlant = new TomatoPlant();
 
@@ -17,8 +17,9 @@ public class TomatoPlantTest {
         //Then
         Assert.assertNotNull(tomato);
     }
+
     @Test
-    public void instanceOfCropTest(){
+    public void instanceOfCropTest() {
         TomatoPlant tomatoPlant = new TomatoPlant();
 
         Boolean actual = tomatoPlant instanceof Crop;
@@ -40,6 +41,7 @@ public class TomatoPlantTest {
         //Then
         Assert.assertFalse(actual);
     }
+
     @Test
     public void hasBeenHarvestedTest() {
         //Given
@@ -52,15 +54,6 @@ public class TomatoPlantTest {
         Boolean actual = tomatoPlant.getHasBeenHarvested();
 
         //Then
-        Assert.assertTrue(actual);
-    }
-    @Test
-    public void fertilizedTest(){
-        TomatoPlant tomatoPlant = new TomatoPlant();
-
-        tomatoPlant.fertilizeCrop();
-        Boolean actual = tomatoPlant.getHasBeenFertilized();
-
         Assert.assertTrue(actual);
     }
 }

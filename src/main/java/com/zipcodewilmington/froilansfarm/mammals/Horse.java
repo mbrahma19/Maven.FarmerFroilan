@@ -10,6 +10,7 @@ public class Horse extends Mammal implements Rideable{
 
     public Horse(){
         super();
+        rideStatus = true;
     }
 
 
@@ -27,7 +28,6 @@ public class Horse extends Mammal implements Rideable{
     }
 
     public Boolean getRideStatus() {
-
         return rideStatus;
     }
 }

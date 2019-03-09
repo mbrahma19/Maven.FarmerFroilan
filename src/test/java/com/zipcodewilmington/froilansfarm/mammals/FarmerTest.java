@@ -53,7 +53,19 @@ public class FarmerTest {
 
         //Then
 
+    }
+    @Test
+    public void mountTest() {
+        //Given
+        Farmer farmer = new Farmer();
+        Horse horse = new Horse();
 
+        //When
+        farmer.mount(horse);
+        Boolean actual = horse.getRideStatus();
+
+        //Then
+        Assert.assertFalse(actual);
     }
 
 }
