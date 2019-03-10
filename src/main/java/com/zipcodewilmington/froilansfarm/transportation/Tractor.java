@@ -10,10 +10,11 @@ import java.util.List;
 
 public class Tractor extends Vehicle implements FarmVehicle {
 
+    private Boolean rideStatus;
     List<Edible> tractorBin;
     public Tractor(){
         super();
-        getRideStatus().equals(true);
+        rideStatus = true;
         tractorBin = new ArrayList<>();
     }
 
