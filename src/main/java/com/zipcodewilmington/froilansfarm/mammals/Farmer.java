@@ -39,4 +39,6 @@ public class Farmer extends Mammal implements Rider, Eater, Botanist {
         entity.setRideStatus(true);
 
     }
+
+
 }
