@@ -39,8 +39,16 @@ public class Farm {
         return stableList;
     }
 
+    public void addStable(Stable stable){
+        stableList.add(stable);
+    }
+
     public List<ChickenCoop> getChickenCoops() {
         return chickenCoops;
+    }
+
+    public void addChickenCoop(ChickenCoop chickenCoop){
+        chickenCoops.add(chickenCoop);
     }
 
     public FarmHouse getFarmHouse() {
@@ -49,6 +57,10 @@ public class Farm {
 
     public Field getCropField() {
         return cropField;
+    }
+
+    public void setCropField(Field cropField) {
+        this.cropField = cropField;
     }
 
     public FarmVehicle getVehicle1() {
@@ -62,6 +74,5 @@ public class Farm {
     public Aircraft getAircraft() {
         return aircraft;
     }
-
 
 }
