@@ -75,4 +75,14 @@ public class Farm {
         return aircraft;
     }
 
+    public void resetFarm(){
+        this.stableList = new ArrayList<>();
+        this.chickenCoops = new ArrayList<>();
+        this.farmHouse = new FarmHouse();
+        this.cropField = new Field();
+        this.vehicle1 = new Tractor();
+        this.vehicle2 = new Tractor();
+        this.aircraft = new CropDuster();
+    }
+
 }

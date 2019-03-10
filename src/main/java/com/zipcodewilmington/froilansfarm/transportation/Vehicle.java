@@ -7,6 +7,10 @@ public abstract class Vehicle implements NoiseMaker, Rideable {
 
     private Boolean rideStatus;
 
+    public Vehicle(){
+        rideStatus = true;
+    }
+
     public void setRideStatus(Boolean b) {
         rideStatus = b;
     }

@@ -37,6 +37,7 @@ public class Pilot extends Mammal implements Rider, Eater {
 
     public void dismount(Rideable entity) {
 
+
     }
 
     public Boolean getCurrentlyRiding() {

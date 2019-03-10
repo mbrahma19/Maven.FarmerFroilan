@@ -52,14 +52,14 @@ public class CropDusterTest {
 
         //when
         aircraft.operate(farm);
-        Boolean result = getFertilizeStatus((CropRow) farm.getCropField().getList().get(0));
+        Boolean result = getFertilizeStatus(farm.getCropField().getList().get(0));
         //then
         Assert.assertTrue(result);
 
     }
 
 
-    private boolean getFertilizeStatus(CropRow<WatermelonPlant> cropRow) {
+    private boolean getFertilizeStatus(CropRow cropRow) {
         boolean result = true;
         for (Crop c : cropRow.getList()) {
             if (c.getHasBeenFertilized() == false) {

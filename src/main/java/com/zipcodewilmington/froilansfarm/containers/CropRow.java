@@ -7,10 +7,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CropRow<T extends Crop> extends Container<Crop> {
+public class CropRow extends Container<Crop> {
 
     private Boolean hasBeenFertilized;
     private Boolean hasBeenHarvested;
+
+    public CropRow(List list){
+        super(list);
+        hasBeenFertilized = false;
+        hasBeenHarvested = false;
+    }
 
     public CropRow(){
         super();
@@ -38,5 +44,6 @@ public class CropRow<T extends Crop> extends Container<Crop> {
         return getList().get(getList().indexOf(cropToGet));
     }
 
+    //public List<>
 
 }
