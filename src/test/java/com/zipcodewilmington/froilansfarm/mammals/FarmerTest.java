@@ -1,7 +1,10 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
+import com.zipcodewilmington.froilansfarm.Farm;
+import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.crops.Tomato;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,13 +48,20 @@ public class FarmerTest {
     public void plantTest() {
         //Given
         Farmer farmer = new Farmer();
-        String expected;
+        Farm farm = Farm.getFarm();
+        Integer expected =2;
 
         //When
+        CropRow cropRow = new CropRow();
+        cropRow.add(new WatermelonPlant());
+        farm.getCropField().add(cropRow);
+
         TomatoPlant tomatoPlant = new TomatoPlant();
-        farmer.plant(tomatoPlant);
+        farmer.plant(tomatoPlant,0);
+        Integer actual = farm.getCropField().getCropRow(0).size();
 
         //Then
+        Assert.assertEquals(actual,expected);
 
     }
     @Test
@@ -66,6 +76,19 @@ public class FarmerTest {
 
         //Then
         Assert.assertFalse(actual);
+    }
+    @Test
+    public void dismountTest() {
+        //Given
+        Farmer farmer = new Farmer();
+        Horse horse = new Horse();
+
+        //When
+        farmer.dismount(horse);
+        Boolean actual = horse.getRideStatus();
+
+        //Then
+        Assert.assertTrue(actual);
     }
 
 }
