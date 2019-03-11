@@ -4,47 +4,19 @@ import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Eater;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.transportation.CropDuster;
 
-public class Pilot extends Mammal implements Rider, Eater {
-    private Boolean isCurrentlyRiding;
-    private Rideable currentTransportation;
-    private Farm farm;
-
-
-    public Pilot() {
-        isCurrentlyRiding = false;
-        currentTransportation = null;
-        farm = Farm.getFarm();
-    }
+public class Pilot extends Human{
 
     public String noise() {
-
         return "CHHH, Attention passengers we may experience some turbulence CHHH";
     }
 
-    public void mount(Rideable entity) {
-
-        if (entity.getRideStatus() != false && isCurrentlyRiding != true) {
-            entity.setRideStatus(true);
-            isCurrentlyRiding = false;
-            currentTransportation = entity;
-        } else {
-            dismount(entity);
-        }
-    }
-
-    public void dismount(Rideable entity) {
-
-
-    }
-
-    public Boolean getCurrentlyRiding() {
-        return isCurrentlyRiding;
-    }
-
-
-    public Rideable getCurrentTransportation() {
-        return currentTransportation;
+    public void fertilizeCrops() {
+        CropDuster cropDuster = (CropDuster) Farm.getFarm().getAircraft();
+        mount(cropDuster);
+        cropDuster.operate(Farm.getFarm());
+        dismount(cropDuster);
     }
 
 }

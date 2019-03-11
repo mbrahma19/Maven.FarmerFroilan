@@ -1,4 +1,4 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.enums;
 
 import com.zipcodewilmington.froilansfarm.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.crops.Crop;

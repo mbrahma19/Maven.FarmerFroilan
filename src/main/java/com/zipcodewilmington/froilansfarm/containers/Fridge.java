@@ -1,4 +1,8 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
-public class Fridge {
+import com.zipcodewilmington.froilansfarm.crops.Edible;
+
+public class Fridge extends Container<Edible> {
+
+
 }

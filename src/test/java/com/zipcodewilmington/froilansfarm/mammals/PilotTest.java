@@ -1,13 +1,11 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.crops.Egg;
 import com.zipcodewilmington.froilansfarm.crops.Watermelon;
-import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class PilotTest {
@@ -52,7 +50,7 @@ public class PilotTest {
         //given
         Pilot pilot = new Pilot();
         Horse horsey = new Horse();
-        Boolean expected = false;
+        Boolean expected = true;
         pilot.mount(horsey);
 
         //when
@@ -81,12 +79,10 @@ public class PilotTest {
         //given
         Pilot pilot = new Pilot();
         Horse horsey = new Horse();
-        Boolean expected = false;
         pilot.mount(horsey);
         //when
-        pilot.getCurrentTransportation();
-        Boolean actual = pilot.getCurrentlyRiding();
+        Rideable actual = pilot.getCurrentTransportation();
         //then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(horsey,actual);
     }
 }

@@ -27,7 +27,7 @@ public class CropDusterTest {
     public void testFly() {
         //given
         CropDuster cropDuster = new CropDuster();
-        cropDuster.setFlying(true);
+        cropDuster.fly();
 
         //when
         Boolean actual = cropDuster.getFlying();
@@ -57,7 +57,6 @@ public class CropDusterTest {
         Assert.assertTrue(result);
 
     }
-
 
     private boolean getFertilizeStatus(CropRow cropRow) {
         boolean result = true;

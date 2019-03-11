@@ -1,5 +1,6 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.transportation;
 
+import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.crops.Edible;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
@@ -8,11 +9,17 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.transportation.Tractor;
 import com.zipcodewilmington.froilansfarm.transportation.Vehicle;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
 public class TractorTest {
+
+    @Before
+    public void setup(){
+        Farm.getFarm().resetFarm();
+    }
 
     @Test
     public void instanceOfTest(){
