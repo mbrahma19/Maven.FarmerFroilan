@@ -1,12 +1,18 @@
 package com.zipcodewilmington.froilansfarm.crops;
 
-import com.zipcodewilmington.froilansfarm.crops.Edible;
-
 public class Egg extends Edible {
-
     private Boolean hasBeenFertilized;
 
-    private Egg(Integer caloricValue){
-        super(caloricValue);
+    public Egg() {
+        super(72);
+        hasBeenFertilized = false;
+    }
+
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
+
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
     }
 }

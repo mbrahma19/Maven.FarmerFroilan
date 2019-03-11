@@ -1,24 +1,44 @@
 package com.zipcodewilmington.froilansfarm.transportation;
 
-import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm;
+import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
-public class CropDuster extends Vehicle implements FarmVehicle, Aircraft {
-    public void fly() {
+import java.util.List;
 
+public class CropDuster extends Vehicle implements FarmVehicle, Aircraft {
+
+    Boolean isFlying;
+
+    public CropDuster(){
+        super();
+        isFlying = false;
+    }
+
+    public void fly() {
+        isFlying = true;
+    }
+
+    public void land(){
+        isFlying = false;
     }
 
     public void operate(Farm farm) {
-
+        fly();
+        List<CropRow> field = farm.getCropField().getList();
+        for (CropRow cropRow : field) {
+            cropRow.fertilizeCropRow();
+        }
+        land();
     }
 
     public String noise() {
-        return null;
+        return "flying noises";
     }
 
-    public void fertilize(CropRow row){
-
+    public Boolean getFlying() {
+        return isFlying;
     }
+
 }

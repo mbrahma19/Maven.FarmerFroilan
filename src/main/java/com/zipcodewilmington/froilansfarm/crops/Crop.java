@@ -7,8 +7,9 @@ public abstract class Crop implements Produce {
     private Boolean hasBeenFertilized;
     private Boolean hasBeenHarvested;
 
-    public void fertilizeCrop(){
-        hasBeenFertilized = true;
+    public Crop() {
+        this.hasBeenFertilized = false;
+        this.hasBeenHarvested = false;
     }
 
     public Boolean getHasBeenFertilized() {

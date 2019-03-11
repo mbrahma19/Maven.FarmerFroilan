@@ -1,19 +1,20 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
-import com.zipcodewilmington.froilansfarm.crops.Edible;
+import com.zipcodewilmington.froilansfarm.crops.Egg;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
 public class Chicken extends Mammal implements Produce {
-
-    public void eat(Edible edibleFood) {
-
-    }
-
+    private static Integer counter = 1;
     public String noise() {
-        return null;
+
+        return "Cluck!!";
     }
 
-    public <T extends Edible> T yield() {
-        return null;
+    public Egg yield() {
+        Egg egg = new Egg();
+        if(counter % 4 == 0){
+            egg.setHasBeenFertilized(true);
+        }
+        return egg;
     }
 }
