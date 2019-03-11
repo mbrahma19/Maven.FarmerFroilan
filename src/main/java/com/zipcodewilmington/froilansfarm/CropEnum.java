@@ -1,6 +1,10 @@
 package com.zipcodewilmington.froilansfarm;
 
-import com.zipcodewilmington.froilansfarm.crops.*;
+import com.zipcodewilmington.froilansfarm.crops.CornStalk;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
+
 import java.util.function.Supplier;
 
 public enum CropEnum {
@@ -11,9 +15,11 @@ public enum CropEnum {
 
     private final Supplier<Crop> supplier;
 
-    CropEnum(Supplier<Crop> supplier){this.supplier = supplier;}
+    CropEnum(Supplier<Crop> supplier) {
+        this.supplier = supplier;
+    }
 
-    public static CropEnum getValueOf(String userInput){
+    public static CropEnum getValueOf(String userInput) {
         userInput = userInput.toUpperCase();
         try {
             return valueOf(userInput);
@@ -22,5 +28,7 @@ public enum CropEnum {
         }
     }
 
-    public Crop create(){ return supplier.get();}
+    public Crop create() {
+        return supplier.get();
+    }
 }

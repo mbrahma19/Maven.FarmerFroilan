@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm;
 
-import com.zipcodewilmington.froilansfarm.containers.*;
+import com.zipcodewilmington.froilansfarm.containers.ChickenCoop;
+import com.zipcodewilmington.froilansfarm.containers.FarmHouse;
+import com.zipcodewilmington.froilansfarm.containers.Field;
+import com.zipcodewilmington.froilansfarm.containers.Stable;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.transportation.CropDuster;
@@ -31,7 +34,7 @@ public class Farm {
         this.aircraft = new CropDuster();
     }
 
-    public static Farm getFarm(){
+    public static Farm getFarm() {
         return farm;
     }
 
@@ -39,7 +42,7 @@ public class Farm {
         return stableList;
     }
 
-    public void addStable(Stable stable){
+    public void addStable(Stable stable) {
         stableList.add(stable);
     }
 
@@ -47,7 +50,7 @@ public class Farm {
         return chickenCoops;
     }
 
-    public void addChickenCoop(ChickenCoop chickenCoop){
+    public void addChickenCoop(ChickenCoop chickenCoop) {
         chickenCoops.add(chickenCoop);
     }
 
@@ -75,7 +78,7 @@ public class Farm {
         return aircraft;
     }
 
-    public void resetFarm(){
+    public Farm resetFarm() {
         this.stableList = new ArrayList<>();
         this.chickenCoops = new ArrayList<>();
         this.farmHouse = new FarmHouse();
@@ -83,6 +86,7 @@ public class Farm {
         this.vehicle1 = new Tractor();
         this.vehicle2 = new Tractor();
         this.aircraft = new CropDuster();
+        return farm;
     }
 
 }

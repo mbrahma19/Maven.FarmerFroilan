@@ -12,18 +12,19 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
     private List<Edible> tractorBin;
 
-    public Tractor(){
+    public Tractor() {
         super();
         tractorBin = new ArrayList<>();
     }
 
     public void operate(Farm farm) {
         List<CropRow> field = farm.getCropField().getList();
-        for(CropRow cropRow: field){
+        for (CropRow cropRow : field) {
             tractorBin.addAll(cropRow.harvestCropRow());
         }
     }
-    public List<Edible> getTractorBin(){
+
+    public List<Edible> getTractorBin() {
         return tractorBin;
     }
 

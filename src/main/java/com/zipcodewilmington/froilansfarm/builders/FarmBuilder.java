@@ -12,7 +12,16 @@ import java.util.stream.Stream;
 
 public class FarmBuilder {
 
-    private Farm farm = Farm.getFarm();
+    private final static FarmBuilder farmBuilder = new FarmBuilder();
+    private Farm farm;
+
+    private FarmBuilder() {
+        farm = Farm.getFarm();
+    }
+
+    public static FarmBuilder getFarmBuilder() {
+        return farmBuilder;
+    }
 
     public FarmBuilder addStable(Integer numberOfHorses) {
         Stream.generate(Stable::new).limit(1).forEach(stable -> {
@@ -43,6 +52,16 @@ public class FarmBuilder {
             });
         });
         return this;
+    }
+
+    public Farm getFroilanFarm() {
+        FarmBuilder farmBuilder = new FarmBuilder();
+        farmBuilder.addCropRows("cornstalk", 1)
+                .addCropRows("tomatoplant", 1)
+                .addCropRows("watermelonplant", 1)
+                .addChickenCoops(4).addChickenCoops(5).addChickenCoops(3).addChickenCoops(3)
+                .addStable(2).addStable(4).addStable(4);
+        return Farm.getFarm();
     }
 
 }

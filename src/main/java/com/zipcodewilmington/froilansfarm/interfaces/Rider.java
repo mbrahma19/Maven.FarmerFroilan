@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.interfaces;
 
-public interface Rider{
+public interface Rider {
 
     void mount(Rideable entity);
 

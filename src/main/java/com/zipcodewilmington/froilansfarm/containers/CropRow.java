@@ -12,35 +12,35 @@ public class CropRow extends Container<Crop> {
     private Boolean hasBeenFertilized;
     private Boolean hasBeenHarvested;
 
-    public CropRow(List list){
+    public CropRow(List list) {
         super(list);
         hasBeenFertilized = false;
         hasBeenHarvested = false;
     }
 
-    public CropRow(){
+    public CropRow() {
         super();
         hasBeenFertilized = false;
         hasBeenHarvested = false;
     }
 
-    public void fertilizeCropRow(){
+    public void fertilizeCropRow() {
         hasBeenFertilized = true;
         hasBeenHarvested = false;
-        for(Crop c : getList()){
+        for (Crop c : getList()) {
             c.setHasBeenFertilized(true);
         }
     }
 
-    public List<Edible> harvestCropRow(){
-        Stream<Edible> edibleStream = getList().stream().filter( crop -> crop.getHasBeenFertilized()).map(Crop::yield);
-        List<Edible> harvestList  = edibleStream.collect(Collectors.toList());
+    public List<Edible> harvestCropRow() {
+        Stream<Edible> edibleStream = getList().stream().filter(crop -> crop.getHasBeenFertilized()).map(Crop::yield);
+        List<Edible> harvestList = edibleStream.collect(Collectors.toList());
         hasBeenHarvested = true;
         hasBeenFertilized = false;
         return harvestList;
     }
 
-    public Crop getCrop(Crop cropToGet){
+    public Crop getCrop(Crop cropToGet) {
         return getList().get(getList().indexOf(cropToGet));
     }
 
