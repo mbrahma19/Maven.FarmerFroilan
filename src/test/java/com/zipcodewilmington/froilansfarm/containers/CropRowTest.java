@@ -4,6 +4,7 @@ import com.zipcodewilmington.froilansfarm.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.crops.Crop;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class CropRowTest {
     @Test
     public void getCropTest() {
         //given
-        CropRow cropRow = new CropRow<>();
+        CropRow cropRow = new CropRow();
         WatermelonPlant watermelonPlant = new WatermelonPlant();
         //when
         cropRow.add(watermelonPlant);
@@ -56,7 +57,7 @@ public class CropRowTest {
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
         TomatoPlant tomatoPlant = new TomatoPlant();
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
         Integer expectedSize = 3;
         //when
         cropRow.add(watermelonPlant);
@@ -77,7 +78,7 @@ public class CropRowTest {
         WatermelonPlant watermelonPlant2 = new WatermelonPlant();
         CornStalk cornStalk = new CornStalk();
         TomatoPlant tomatoPlant = new TomatoPlant();
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
 
         //when
         cropRow.add(watermelonPlant);
@@ -101,7 +102,7 @@ public class CropRowTest {
         ArrayList<Crop> expectedList = new ArrayList<>(Arrays.asList(new Crop[]{watermelonPlant, watermelonPlant2, cornStalk, tomatoPlant}));
 
         //when
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
         cropRow.add(watermelonPlant);
         cropRow.add(watermelonPlant2);
         cropRow.add(cornStalk);
@@ -120,7 +121,7 @@ public class CropRowTest {
         CornStalk cornStalk = new CornStalk();
         TomatoPlant tomatoPlant = new TomatoPlant();
         //when
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
         cropRow.add(watermelonPlant);
         cropRow.add(watermelonPlant2);
         cropRow.add(cornStalk);
@@ -141,7 +142,7 @@ public class CropRowTest {
         Integer expectedSize = 4;
 
         //when
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
         cropRow.add(watermelonPlant);
         cropRow.add(watermelonPlant2);
         cropRow.add(cornStalk);
@@ -165,7 +166,7 @@ public class CropRowTest {
         Integer expectedSize = 2;
 
         //when
-        CropRow<WatermelonPlant> cropRow = new CropRow();
+        CropRow cropRow = new CropRow();
         cropRow.add(watermelonPlant);
         cropRow.add(watermelonPlant2);
         cropRow.add(cornStalk);
@@ -176,10 +177,10 @@ public class CropRowTest {
         Assert.assertEquals(expectedSize, actualSize);
     }
 
-    private boolean getFertilizeStatus(CropRow<WatermelonPlant> cropRow) {
+    private boolean getFertilizeStatus(CropRow cropRow) {
         boolean result = true;
         for (Crop c : cropRow.getList()) {
-            if (c.getHasBeenFertilized() == false) {
+            if (!c.getHasBeenFertilized()) {
                 result = false;
             }
         }

@@ -5,13 +5,22 @@ import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.crops.Tomato;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
+import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.transportation.Tractor;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class FarmerTest {
+    @Before
+    public void setup(){
+        Farm.getFarm().resetFarm();
+    }
 
     @Test
-    public void istanceOfTest(){
+    public void instanceOfTest(){
         //Given
         Farmer farmer = new Farmer();
         //When
@@ -19,6 +28,27 @@ public class FarmerTest {
         //Then
         Assert.assertTrue(actual);
     }
+
+    @Test
+    public void instanceOfRiderTest(){
+        //Given
+        Farmer farmer = new Farmer();
+        //When
+        Boolean actual = farmer instanceof Rider;
+        //Then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void instanceOfNoiseMakerTest(){
+        //Given
+        Farmer farmer = new Farmer();
+        //When
+        Boolean actual = farmer instanceof NoiseMaker;
+        //Then
+        Assert.assertTrue(actual);
+    }
+
     @Test
     public void eatTest(){
         //Given
@@ -39,7 +69,6 @@ public class FarmerTest {
         String expected = "This is starting to get weird...";
 
         //When
-
         String actual = farmer.noise();
         //Then
         Assert.assertEquals(expected,actual);
@@ -49,6 +78,7 @@ public class FarmerTest {
         //Given
         Farmer farmer = new Farmer();
         Farm farm = Farm.getFarm();
+        farm.getCropField().clearField();
         Integer expected =2;
 
         //When
@@ -61,9 +91,10 @@ public class FarmerTest {
         Integer actual = farm.getCropField().getCropRow(0).size();
 
         //Then
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(expected,actual);
 
     }
+
     @Test
     public void mountTest() {
         //Given
@@ -77,6 +108,21 @@ public class FarmerTest {
         //Then
         Assert.assertFalse(actual);
     }
+
+    @Test
+    public void mountGetTransportationTest() {
+        //Given
+        Farmer farmer = new Farmer();
+        Horse horse = new Horse();
+
+        //When
+        farmer.mount(horse);
+        Rideable actual = farmer.getCurrentTransportation();
+
+        //Then
+        Assert.assertEquals(horse,actual);
+    }
+
     @Test
     public void dismountTest() {
         //Given
@@ -84,6 +130,7 @@ public class FarmerTest {
         Horse horse = new Horse();
 
         //When
+        farmer.mount(horse);
         farmer.dismount(horse);
         Boolean actual = horse.getRideStatus();
 
@@ -91,4 +138,34 @@ public class FarmerTest {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void dismountCheckRidingStatusTest() {
+        //Given
+        Farmer farmer = new Farmer();
+        Horse horse = new Horse();
+
+        //When
+        farmer.mount(horse);
+        farmer.dismount(horse);
+        Boolean actual = farmer.getCurrentlyRiding();
+
+        //Then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void mountHorseWhenAlreadyRidingTest() {
+        //Given
+        Farmer farmer = new Farmer();
+        Tractor tractor = new Tractor();
+        Horse horse = new Horse();
+
+        //When
+        farmer.mount(tractor);
+        farmer.mount(horse);
+        Rideable actual = farmer.getCurrentTransportation();
+
+        //Then
+        Assert.assertEquals(horse,actual);
+    }
 }

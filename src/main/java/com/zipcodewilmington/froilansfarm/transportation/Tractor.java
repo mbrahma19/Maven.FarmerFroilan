@@ -10,24 +10,23 @@ import java.util.List;
 
 public class Tractor extends Vehicle implements FarmVehicle {
 
-    private Boolean rideStatus;
-    List<Edible> tractorBin;
-    public Tractor(){
+    private List<Edible> tractorBin;
+
+    public Tractor() {
         super();
-        rideStatus = true;
         tractorBin = new ArrayList<>();
     }
 
     public void operate(Farm farm) {
         List<CropRow> field = farm.getCropField().getList();
-        for(CropRow cropRow: field){
+        for (CropRow cropRow : field) {
             tractorBin.addAll(cropRow.harvestCropRow());
         }
     }
-    public List<Edible> getTractorBin(){
+
+    public List<Edible> getTractorBin() {
         return tractorBin;
     }
-
 
     public String noise() {
         return "hissssssssss ssss ss";

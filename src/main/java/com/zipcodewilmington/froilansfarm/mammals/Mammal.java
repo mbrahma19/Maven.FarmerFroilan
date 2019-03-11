@@ -8,7 +8,7 @@ public abstract class Mammal implements NoiseMaker, Eater {
 
     private Integer caloricIntake;
 
-    public Mammal(){
+    public Mammal() {
         this.caloricIntake = 0;
     }
 
@@ -20,7 +20,7 @@ public abstract class Mammal implements NoiseMaker, Eater {
         this.caloricIntake = this.caloricIntake + caloricIntake;
     }
 
-    public void eat(Edible edible){
+    public void eat(Edible edible) {
         addCalories(edible.getCalories());
     }
 

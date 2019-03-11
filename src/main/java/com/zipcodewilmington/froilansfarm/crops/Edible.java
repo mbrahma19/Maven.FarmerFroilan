@@ -4,7 +4,7 @@ public abstract class Edible {
 
     private Integer calories;
 
-    public Edible(Integer calorieCount){
+    public Edible(Integer calorieCount) {
         calories = calorieCount;
     }
 

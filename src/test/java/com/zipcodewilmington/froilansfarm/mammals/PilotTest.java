@@ -1,15 +1,23 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.crops.Egg;
 import com.zipcodewilmington.froilansfarm.crops.Watermelon;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PilotTest {
+    @After
+    public void setup(){
+        Farm.getFarm().resetFarm();
+    }
+
     @Test
-    public void testPilotest() {
+    public void testPilotTest() {
         //given
         Pilot pilot = new Pilot();
         Watermelon watermelon = new Watermelon();
