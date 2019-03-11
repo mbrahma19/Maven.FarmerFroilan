@@ -51,12 +51,21 @@ public class CornStalkTest {
         //Given
         CornStalk cornStalk = new CornStalk();
 
-
         //When
-
         Boolean actual = cornStalk instanceof Crop;
 
         //Then
         Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void toStringTest(){
+        //given
+        CornStalk cornStalk = new CornStalk();
+        String expected = "CornStalk";
+        //when
+        String actual = cornStalk.toString();
+        //then
+        Assert.assertEquals(expected,actual);
     }
 }
