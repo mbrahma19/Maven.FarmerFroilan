@@ -9,6 +9,8 @@ import java.util.Arrays;
 
 public class FieldTest {
 
+
+
     @Test
     public void clearFieldTest(){
         //given

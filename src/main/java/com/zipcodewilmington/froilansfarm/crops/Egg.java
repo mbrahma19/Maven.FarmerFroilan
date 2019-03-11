@@ -5,8 +5,14 @@ public class Egg extends Edible {
 
     public Egg() {
         super(72);
-
+        hasBeenFertilized = false;
     }
 
+    public Boolean getHasBeenFertilized() {
+        return hasBeenFertilized;
+    }
 
+    public void setHasBeenFertilized(Boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
+    }
 }

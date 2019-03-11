@@ -7,10 +7,12 @@ public class Horse extends Mammal implements Rideable {
 
 
     private Boolean rideStatus;
+    private Integer dailyRides;
 
     public Horse() {
         super();
         rideStatus = true;
+        dailyRides = 0;
     }
 
 
@@ -27,6 +29,9 @@ public class Horse extends Mammal implements Rideable {
     }
 
     public void setRideStatus(Boolean b) {
+        if(b){
+
+        }
         this.rideStatus = b;
 
     }

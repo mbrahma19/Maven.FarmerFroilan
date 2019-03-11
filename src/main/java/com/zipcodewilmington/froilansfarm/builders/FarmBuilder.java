@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.builders;
 
-import com.zipcodewilmington.froilansfarm.CropEnum;
+import com.zipcodewilmington.froilansfarm.enums.CropEnum;
 import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.containers.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
