@@ -11,4 +11,8 @@ public class EarCorn extends Edible {
 
     }
 
+    @Override
+    public String toString() {
+        return "EarCorn";
+    }
 }

@@ -1,17 +1,22 @@
 package com.zipcodewilmington.froilansfarm.mammals;
 
 import com.zipcodewilmington.froilansfarm.Farm;
+import com.zipcodewilmington.froilansfarm.builders.FarmBuilder;
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
+import com.zipcodewilmington.froilansfarm.crops.Edible;
 import com.zipcodewilmington.froilansfarm.crops.Tomato;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.crops.WatermelonPlant;
 import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.transportation.CropDuster;
 import com.zipcodewilmington.froilansfarm.transportation.Tractor;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 public class FarmerTest {
     @Before
@@ -167,5 +172,23 @@ public class FarmerTest {
 
         //Then
         Assert.assertEquals(horse,actual);
+    }
+
+    @Test
+    public void harvestFarmTest(){
+        //given
+        FarmBuilder farmBuilder = FarmBuilder.getFarmBuilder();
+        farmBuilder.addCropRows("watermelonplant",4)
+                .addCropRows("tomatoplant",2);
+        Farm farm = Farm.getFarm();
+        CropDuster cropDuster = (CropDuster)farm.getAircraft();
+        Tractor tractor = (Tractor)farm.getVehicle1();
+        //when
+        cropDuster.operate(farm);
+        tractor.operate(farm);
+        List<Edible> edibles = tractor.getTractorBin();
+        System.out.println(edibles.toString());
+        //then
+        Assert.assertEquals(6,edibles.size());
     }
 }

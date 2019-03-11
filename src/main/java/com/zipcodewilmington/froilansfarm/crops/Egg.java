@@ -15,4 +15,9 @@ public class Egg extends Edible {
     public void setHasBeenFertilized(Boolean hasBeenFertilized) {
         this.hasBeenFertilized = hasBeenFertilized;
     }
+
+    @Override
+    public String toString() {
+        return "Egg";
+    }
 }

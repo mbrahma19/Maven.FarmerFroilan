@@ -6,4 +6,8 @@ public class CornStalk extends Crop {
         return new EarCorn();
     }
 
+    @Override
+    public String toString() {
+        return "CornStalk";
+    }
 }

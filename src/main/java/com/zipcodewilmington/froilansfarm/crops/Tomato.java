@@ -9,4 +9,9 @@ public class Tomato extends Edible {
     private Tomato(Integer caloricValue) {
         super(caloricValue);
     }
+
+    @Override
+    public String toString() {
+        return "Tomato";
+    }
 }
